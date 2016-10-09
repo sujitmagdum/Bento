@@ -18,7 +18,6 @@ class CreateOrdersTable extends Migration
                 $table->integer('cust_id');
                 $table->integer('order_type_id');
                 $table->integer('order_sub_type_id');
-                $table->integer('order_timing_id');
                 $table->string('dishes_id',20);
                 $table->date('date');
                 $table->integer('order_quantity');
@@ -28,7 +27,6 @@ class CreateOrdersTable extends Migration
                 $table->foreign('cust_id')->references('id')->on('customer');
                 $table->foreign('order_type_id')->references('id')->on('order_type');
                 $table->foreign('order_sub_type_id')->references('id')->on('order_sub_type');
-                $table->foreign('order_timing_id')->references('id')->on('order_timings');
             });
         }
     }

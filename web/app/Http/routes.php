@@ -14,4 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('test', array("uses" => "TestController@test"));
+Route::post('insert_update_city', array("uses" => "AddressMasterController@insertUpdateCity"));
+Route::post('insert_update_order_type', array("uses" => "OrderMasterController@insertUpdateOrderType"));
+Route::post('insert_update_order_sub_type', array("uses" => "OrderMasterController@insertUpdateOrderSubType"));
