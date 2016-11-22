@@ -99,5 +99,8 @@ class Utility {
             Log::debug("Exception found in logException :-" . $exception);
         }
     }
+    public static function generateOtp() {
+        return $otp = rand(100000, 999999);
+    }
 
 }

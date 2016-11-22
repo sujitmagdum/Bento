@@ -14,6 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('insert_update_city', array("uses" => "AddressMasterController@insertUpdateCity"));
+Route::post('signup', array('middleware' => 'cors',"uses" => "AuthController@userSignUp"));
+Route::post('otp_verification', array('middleware' => 'cors',"uses" => "AuthController@otpVerification"));
+Route::post('login', array('middleware' => 'cors',"uses" => "AuthController@logIn"));
+Route::post('logout', array('middleware' => 'cors',"uses" => "AuthController@logout"));
+Route::post('is_logged_in', array("uses" => "AuthController@isLoggedIn"));
+
+Route::post('insert_update_address', array("uses" => "AddressController@insertUpdateAddress"));
+Route::post('insert_update_city', array("uses" => "AddressController@insertUpdateCity"));
 Route::post('insert_update_order_type', array("uses" => "OrderMasterController@insertUpdateOrderType"));
 Route::post('insert_update_order_sub_type', array("uses" => "OrderMasterController@insertUpdateOrderSubType"));

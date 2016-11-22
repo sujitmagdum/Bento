@@ -30,9 +30,24 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
            // \App\Http\Middleware\VerifyCsrfToken::class,
         ],
-
+        'cors_auth' => [
+            'cors',
+            'auth'
+        ],
         'api' => [
+            'cors',
+            'auth',
             'throttle:60,1',
+        ],
+        'admin' => [
+            'cors',
+            'auth',
+            \App\Http\Middleware\Admin::class,
+        ],
+        'customer' => [
+            'cors',
+            'auth',
+            \App\Http\Middleware\Customer::class,
         ],
     ];
 
@@ -49,5 +64,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Foundation\Http\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'jwt.auth' => 'Tymon\JWTAuth\Middleware\GetUserFromToken',
+        'jwt.refresh' => 'Tymon\JWTAuth\Middleware\RefreshToken',
     ];
 }
